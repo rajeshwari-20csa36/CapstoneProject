@@ -1,0 +1,24 @@
+<nav class="side-panel" id="logo">
+  <div class="flex pt-4">
+    <h2 class="text-2xl font-bold text-center">
+      <i class="fas fa-globe mr-2"></i> Sync Time
+    </h2>
+  </div>
+  
+    <button class="nav-item" [class.active]="activePage === '' " (click)="onPageChange('')">
+      <i class="fas fa-house"></i> Dashboard
+    </button>
+    <button class="nav-item" [class.active]="activePage === 'myteam'" (click)="onPageChange('myteam')">
+      <i class="fas fa-users"></i> 
+      My Team
+    </button>
+    <button class="nav-item" [class.active]="activePage === 'timezone'" (click)="onPageChange('timezone')">
+      <i class="fas fa-earth-americas"></i> Team Timezone
+    </button>
+    <button class="nav-item" [class.active]="activePage === 'schedule'" (click)="onPageChange('schedule')">
+      <i class="far fa-calendar-alt"></i> Schedule Meeting
+    </button>
+    <button class="nav-item" [class.active]="activePage === 'timesheet'" (click)="onPageChange('timesheet')" >
+      <i class="far fa-clock"></i> My Timesheet
+    </button>
+  </nav>

@@ -1,0 +1,49 @@
+<div class="dashboard-container">
+  <app-nav-sidebar [activePage]="'Dashboard'"></app-nav-sidebar>
+  <main class="main-content">
+    <app-top-bar [currentPage]="'Dashboard'"></app-top-bar>
+    
+    <div class="dashboard-content">
+      <div class="search-bars">
+        <input [(ngModel)]="searchTerm" placeholder="Search by skill, name, or designation">
+        <input [(ngModel)]="numberOfEmployees" type="number" placeholder="Number of employees">
+        <input [(ngModel)]="location" placeholder="Location">
+        <button (click)="search()" class="search-button">Search</button>
+      </div>
+
+      <table class="employee-table">
+        <thead>
+          <tr>
+            <th>SELECT</th>
+            <th>NAME</th>
+            <th>SKILLS</th>
+            <th>DESIGNATION</th>
+            <th>LOCATION</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let employee of employees">
+            <td>
+              <input type="checkbox" 
+                     [checked]="selectedEmployees.has(employee.employeeId)" 
+                     (change)="toggleEmployeeSelection(employee.employeeId)">
+            </td>
+            <td>{{ employee.name }}</td>
+            <td>{{ employee.skills.join(', ') }}</td>
+            <td>{{ employee.designation }}</td>
+            <td>{{ employee.location }}</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="pagination-container">
+        <button (click)="previousPage()" [disabled]="currentPage === 0">Previous</button>
+        <span>Page {{ currentPage + 1 }} of {{ totalPages }}</span>
+        <button (click)="nextPage()" [disabled]="currentPage === totalPages - 1">Next</button>
+      </div>
+      <div class="add-to-team" *ngIf="selectedEmployees.size > 0">
+        <button (click)="addToTeam()">Add Selected to Team</button>
+      </div>
+    </div>
+  </main>
+</div>

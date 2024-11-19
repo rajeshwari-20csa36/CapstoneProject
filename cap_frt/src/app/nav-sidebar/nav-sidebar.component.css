@@ -1,0 +1,49 @@
+/* Side Panel Styles */
+:host {
+    display: block;
+    width: 250px;
+    height: 100vh;
+    background-color: rgb(45, 40, 128);
+    color: white;
+  }
+/* .side-panel {
+    width: 250px;
+    background-color: rgb(45, 40, 128);
+    color: white;
+   
+  } */
+  
+  .side-panel h2 {
+    padding: 0 20px;
+    margin-bottom: 30px;
+  }
+  
+  .nav-item {
+    display: block;
+    width: 100%;
+    padding: 15px 20px;
+    background: none;
+    border: none;
+    color: white;
+    text-align: left;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .nav-item:hover, .nav-item.active {
+    background-color: rgb(60, 60, 130);
+    /* background-color: #47358a; */
+  }
+
+  /* .nav-icon-button {
+    background: none;
+    color: white;
+    border: none;
+    font-size: 1.2em;
+    margin-right: 15px;
+    cursor: pointer;
+  } */
+
+  .nav-item i {
+    margin-right: 10px;
+  }

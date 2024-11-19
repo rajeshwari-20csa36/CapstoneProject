@@ -1,0 +1,52 @@
+<!-- my-team.component.html -->
+<div class="my-team-container">
+  <app-nav-sidebar [activePage]="'My Team'"></app-nav-sidebar>
+
+  <!-- Main Content Area -->
+  <main class="main-content">
+    <app-top-bar [currentPage]="'My Team'"></app-top-bar>
+
+    <div class="my-team-content">
+      <div class="table-container">
+        <table class="employee-table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Designation</th>
+              <th>Skills</th>
+              <th>Location</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let member of teamMembers">
+              <td>
+                <div class="member-info">
+                  <div class="avatar"></div>
+                  <span>{{ member.name }}</span>
+                </div>
+              </td>
+              <td>
+                <div class="icon-text">
+                  <span class="icon"></span>
+                  <span>{{ member.designation }}</span>
+                </div>
+              </td>
+              <td>{{ member.skills }}</td>
+              <td>
+                <div class="icon-text">
+                  <span class="icon"></span>
+                  <span>{{ member.location }}</span>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="pagination-container">
+          <button [disabled]="currentPage === 1">Previous</button>
+          <span>Page {{ currentPage }} of {{ totalPages }}</span>
+          <button [disabled]="currentPage === totalPages">Next</button>
+        </div>
+    </div>
+  </main>
+</div>
